@@ -263,7 +263,7 @@
             </a>
           </div>
           <p class="hero-tagline">
-            Hosted by <strong>[[NAME]]</strong> – [[TITLE]]. Limited spots. Your invitation is not transferable.
+            Hosted by <strong>Ken Thompson-Bey</strong> – . Limited spots. Your invitation is not transferable.
           </p>
 
           <div class="badge-row">
@@ -376,7 +376,7 @@
           </div>
           <div class="faq-item">
             <strong>Who is my main point of contact?</strong>
-            <p>Your invited host is <strong>[[NAME]]</strong>. You’ll be guided step-by-step so you are never confused about what to do next.</p>
+            <p>Your invited host is <strong>Ken Thompson-Bey</strong>. You’ll be guided step-by-step so you are never confused about what to do next.</p>
           </div>
         </div>
       </div>
@@ -388,11 +388,11 @@
           [[NAME:INITIALS]]
         </div>
         <div>
-          <p><strong>[[NAME]]</strong><br>
-          [[TITLE]]</p>
+          <p><strong>Ken Thompson-Bey</strong><br>
+          </p>
           <p>
-            📞 <strong>Phone:</strong> [[PHONE]]<br>
-            ✉️ <strong>Email:</strong> <a href="mailto:[[EMAIL]]">[[EMAIL]]</a>
+            📞 <strong>Phone:</strong> 252-290-2181<br>
+            ✉️ <strong>Email:</strong> <a href="[[EMAIL]]">give5getmore@gmail.com</a>
           </p>
           <p style="font-size:0.85rem;">
             “I really need to speak with you. This is serious. If you’re ready to explore a simple,
