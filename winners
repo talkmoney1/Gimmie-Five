@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gimmie Five – Private Invitation with [[NAME]]</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --primary: #f97316;
+      --primary-dark: #ea580c;
+      --accent: #0f172a;
+      --light: #fff7ed;
+      --text: #111827;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0b1120;
+      color: #f9fafb;
+      line-height: 1.6;
+    }
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+    .card {
+      background: radial-gradient(circle at top left, #f97316 0, #0b1120 40%);
+      border-radius: 1.5rem;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+      border: 1px solid rgba(248, 250, 252, 0.06);
+    }
+    @media (min-width: 768px) {
+      .card { padding: 3rem; }
+    }
+    h1, h2, h3 {
+      font-weight: 800;
+      letter-spacing: 0.03em;
+    }
+    h1 {
+      font-size: clamp(2.1rem, 4vw, 3rem);
+      margin-bottom: 0.75rem;
+    }
+    h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      margin: 2rem 0 0.75rem;
+    }
+    h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+      text-transform: uppercase;
+      color: #fed7aa;
+    }
+    p { margin-bottom: 0.75rem; }
+    .highlight {
+      color: #fffbeb;
+      font-weight: 600;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.75);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.75rem;
+    }
+    .pill span {
+      display: inline-block;
+      width: 0.6rem;
+      height: 0.6rem;
+      border-radius: 999px;
+      background: #22c55e;
+      margin-right: 0.4rem;
+    }
+    .hero-grid {
+      display: grid;
+      gap: 2rem;
+    }
+    @media (min-width: 900px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+        align-items: center;
+      }
+    }
+    .hero-sub {
+      color: #ffedd5;
+      max-width: 34rem;
+      font-size: 0.98rem;
+    }
+    .hero-sub strong {
+      color: #fff7ed;
+    }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+      align-items: center;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #111827;
+      padding: 0.8rem 1.6rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 18px 40px rgba(249,115,22,0.45);
+    }
+    .btn-primary span {
+      font-size: 1.2rem;
+    }
+    .btn-ghost {
+      color: #e5e7eb;
+      font-size: 0.9rem;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .hero-tagline {
+      font-size: 0.85rem;
+      opacity: 0.9;
+      margin-top: 0.5rem;
+    }
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 1rem;
+    }
+    .badge {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(248, 250, 252, 0.3);
+      background: rgba(15, 23, 42, 0.6);
+      color: #e5e7eb;
+    }
+    .panel {
+      background: rgba(15,23,42,0.85);
+      border-radius: 1.25rem;
+      padding: 1.25rem 1.5rem;
+      border: 1px solid rgba(148,163,184,0.35);
+      margin-top: 1.5rem;
+    }
+    .panel.light {
+      background: rgba(15,23,42,0.7);
+    }
+    .steps {
+      display: grid;
+      gap: 1.25rem;
+    }
+    @media (min-width: 800px) {
+      .steps {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    .step {
+      background: rgba(15,23,42,0.75);
+      border-radius: 1rem;
+      padding: 1rem;
+      border: 1px solid rgba(148,163,184,0.35);
+      font-size: 0.9rem;
+    }
+    .step-num {
+      width: 1.8rem;
+      height: 1.8rem;
+      border-radius: 999px;
+      background: rgba(249,115,22,0.14);
+      border: 1px solid rgba(249,115,22,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      margin-bottom: 0.4rem;
+    }
+    ul {
+      padding-left: 1.1rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.9rem;
+    }
+    li { margin-bottom: 0.4rem; }
+    .two-col {
+      display: grid;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    @media (min-width: 880px) {
+      .two-col {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      }
+    }
+    .stat-box {
+      border-radius: 1.1rem;
+      padding: 1rem 1.25rem;
+      background: radial-gradient(circle at top right, rgba(249,115,22,0.5), rgba(15,23,42,0.9));
+      border: 1px solid rgba(248,250,252,0.22);
+      font-size: 0.9rem;
+    }
+    .stat-box strong { color: #fed7aa; }
+    .faq-item {
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    .faq-item strong { color: #e5e7eb; }
+    .footer {
+      margin-top: 2.2rem;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      text-align: center;
+    }
+    .host {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+    }
+    .host-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #f97316, #fb923c);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #111827;
+    }
+    a { color: #fed7aa; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="card">
+      <div class="hero-grid">
+        <!-- LEFT: Main message -->
+        <div>
+          <div class="pill">
+            <span></span> Private Invitation Only • Gimmie Five
+          </div>
+          <h1>Turn a One-Time <span class="highlight">$5</span> Gift<br>into the Potential to Receive Up To <span class="highlight">$1,880</span></h1>
+          <p class="hero-sub">
+            Welcome to the <strong>Gimmie Five</strong> giving community. With a minimum $5 contribution,
+            you enter a private, invitation-only circle designed so that when it’s your turn,
+            the community has the opportunity to send <strong>multiple $5 gifts back to you</strong> – up to $1,880
+            in potential blessings. No guarantees. No promises. Just a powerful, structured way
+            to practice generosity and participate in a cooperative system.
+          </p>
+
+          <div class="cta-row">
+            <a href="https://docs.google.com/spreadsheets/d/1KB2BqJwkr0ZGwQlCRFeZ6vDtRe6_WnzEhRiLG3MjhvM/edit?usp=sharing" class="btn-primary">
+              <span>✔</span> Request Your Private Invitation
+            </a>
+            <a href="[[VIDEO_LINK]]" class="btn-ghost" target="_blank" rel="noopener">
+              Watch the Short Overview Video →
+            </a>
+          </div>
+          <p class="hero-tagline">
+            Hosted by <strong>[[NAME]]</strong> – [[TITLE]]. Limited spots. Your invitation is not transferable.
+          </p>
+
+          <div class="badge-row">
+            <div class="badge">One-Time $5 Minimum</div>
+            <div class="badge">Structured 3-Tier Circle</div>
+            <div class="badge">Potential Up To $1,880</div>
+            <div class="badge">No Products • No Selling</div>
+          </div>
+        </div>
+
+        <!-- RIGHT: How it works quick panel -->
+        <div class="panel light">
+          <h3>How Gimmie Five Works</h3>
+          <p style="font-size:0.9rem;">
+            Gimmie Five is a <strong>peer-to-peer cooperative giving program</strong>. You’re never buying a product
+            or investing in a security. You’re simply:
+          </p>
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <strong>Make Your $5 Entry Gift</strong>
+              <p>You privately contribute at least $5 into the system to activate your position.</p>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <strong>Follow the Simple Circle Structure</strong>
+              <p>You move through a structured giving circle. As new participants enter, gifts flow to those already in position.</p>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <strong>It Becomes Your Turn</strong>
+              <p>When you reach the top of the circle, the community has the opportunity to send multiple $5 gifts, up to a potential total of $1,880.</p>
+            </div>
+          </div>
+          <p style="font-size:0.8rem; margin-top:0.5rem; color:#e5e7eb;">
+            Important: All amounts are <strong>potential</strong> based on full participation and cooperation.
+            Nothing is guaranteed. Only contribute what you can comfortably give.
+          </p>
+        </div>
+      </div>
+
+      <!-- DETAILS SECTION -->
+      <h2>Why Gimmie Five Is Different</h2>
+      <div class="two-col">
+        <div>
+          <p>
+            This is not a product-based MLM and it’s not an investment. Gimmie Five is a
+            <strong>cooperative giving community</strong> built around a simple idea:
+            <span class="highlight">many small gifts can add up to meaningful blessings.</span>
+          </p>
+          <ul>
+            <li><strong>Low entry:</strong> Start with a minimum of $5.</li>
+            <li><strong>Private & invitation-only:</strong> You must be personally invited to participate.</li>
+            <li><strong>Structured system:</strong> A clear pathway that shows how gifts can flow.</li>
+            <li><strong>Digital-friendly:</strong> Can use Cash App, Zelle, PayPal, or other agreed methods.</li>
+            <li><strong>Community-focused:</strong> Emphasis on cooperation, not pressure.</li>
+          </ul>
+          <p>
+            The goal is to create a space where people can help one another, circulate generosity,
+            and potentially receive a significant blessing when it’s their turn.
+          </p>
+        </div>
+        <div class="stat-box">
+          <h3 style="margin-bottom:0.5rem;">Potential Blessing Pathway</h3>
+          <p>
+            In a fully cooperating circle, your <strong>one-time $5 entry</strong> can move you into a position
+            where you have the opportunity to receive:
+          </p>
+          <ul>
+            <li>Multiple people sending you $5 at each stage</li>
+            <li>Up to a potential total of <strong>$1,880 in received gifts</strong></li>
+          </ul>
+          <p>
+            Again, this is <strong>not promised or guaranteed</strong>. It depends entirely on community participation
+            and people following the simple structure.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ / COMPLIANCE -->
+      <h2>Common Questions</h2>
+      <div class="two-col">
+        <div>
+          <div class="faq-item">
+            <strong>Is this an investment?</strong>
+            <p>No. Gimmie Five is not an investment, not a loan, and not a security. It’s a
+            <strong>voluntary peer-to-peer gifting activity</strong>. You’re giving a gift to participate in a cooperative system.</p>
+          </div>
+          <div class="faq-item">
+            <strong>Is anything guaranteed?</strong>
+            <p>No. There are <strong>no guarantees</strong>. All examples and numbers (including $1,880)
+            are <strong>potential outcomes only</strong>, based on full community participation, not promises.</p>
+          </div>
+          <div class="faq-item">
+            <strong>How do I get started?</strong>
+            <p>Click the button at the top to request your private invitation. I’ll connect with you personally,
+            explain the structure, and show you exactly where your first $5 gift goes.</p>
+          </div>
+        </div>
+        <div>
+          <div class="faq-item">
+            <strong>Do I have to recruit?</strong>
+            <p>No one is forced to recruit, but <strong>the system works best when everyone shares</strong>
+            the opportunity with others. You’ll receive simple guidance on how to invite people the right way.</p>
+          </div>
+          <div class="faq-item">
+            <strong>Can this help with real bills?</strong>
+            <p>If your circle fills correctly and you reach the receiving position, the potential blessings
+            can be used for anything – rent, utilities, debt, savings, or giving back. But again, nothing is guaranteed.</p>
+          </div>
+          <div class="faq-item">
+            <strong>Who is my main point of contact?</strong>
+            <p>Your invited host is <strong>[[NAME]]</strong>. You’ll be guided step-by-step so you are never confused about what to do next.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- HOST / CONTACT -->
+      <h2>Your Private Invitation Host</h2>
+      <div class="host">
+        <div class="host-avatar">
+          [[NAME:INITIALS]]
+        </div>
+        <div>
+          <p><strong>[[NAME]]</strong><br>
+          [[TITLE]]</p>
+          <p>
+            📞 <strong>Phone:</strong> [[PHONE]]<br>
+            ✉️ <strong>Email:</strong> <a href="mailto:[[EMAIL]]">[[EMAIL]]</a>
+          </p>
+          <p style="font-size:0.85rem;">
+            “I really need to speak with you. This is serious. If you’re ready to explore a simple,
+            structured way to circulate generosity and potentially receive a major blessing, reach out
+            and let’s walk through Gimmie Five together.”
+          </p>
+        </div>
+      </div>
+
+      <div class="cta-row" style="margin-top:1.75rem;">
+        <a href="https://docs.google.com/spreadsheets/d/1KB2BqJwkr0ZGwQlCRFeZ6vDtRe6_WnzEhRiLG3MjhvM/edit?usp=sharing" class="btn-primary">
+          <span>➡</span> Yes, I Want My Private Gimmie Five Invitation
+        </a>
+        <a href="[[VIDEO_LINK]]" class="btn-ghost" target="_blank" rel="noopener">
+          Watch the Overview Again →
+        </a>
+      </div>
+
+      <div class="footer">
+        <p>Gimmie Five is a peer-to-peer cooperative gifting concept. No income is guaranteed. Only give what you can afford.</p>
+        <p>Website presented by [[NAME]]. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
